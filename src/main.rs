@@ -1,13 +1,14 @@
+fn myprint<T: std::fmt::Display>(val: T) {
+    println!("{}", val);
+}
+
 fn main() {
-    let x = 1;
-    println!("Value of x is: {}", x);
-
-    // x += 1; これは出来ない
-
-    let mut y = 1;
-    println!("Value of y is: {}", y);
-
-    y += 1;
-    println!("Value of y after increment is: {}", y);
-
+    // let x = "hello".to_string();
+    // myprint(x);
+    // myprint(x); // エラー: xはすでにムーブされている
+    
+    let x = "hello".to_string();
+    let xx = x.clone();
+    myprint(x);
+    myprint(xx); // エラー: xはすでにムーブされている
 }
